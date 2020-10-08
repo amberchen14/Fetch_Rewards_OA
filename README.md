@@ -26,3 +26,15 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
   - Concat the words until no sign the before words.  
 4. After comparing all words in the list, the ratio = similarity_score/total_score. For example, 0.95=similarity_score (3+0.8)/total_score(4).
 
+## Steps to launch the app
+1. Git clone this repository. (git clone ) 
+2. Open terminal and navigate to this folder
+3. run the query line by line below:
+```bash
+docker image build -t test .  
+docker run -p 5000:5000 -d test      
+```
+4. Turn on browser and copy compared texts on http://0.0.0.0:5000/
+5. Click submit.
+```
+
