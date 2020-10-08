@@ -27,7 +27,7 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
 4. After comparing all words in the list, the ratio = similarity_score/total_score. For example, 0.95=similarity_score (3+0.8)/total_score(4).
 
 ## Steps to launch the app
-1. Git clone this repository. (git clone ) 
+1. Git clone this repository. (git clone https://github.com/amberchen14/Fetch_Rewards_OA.git) 
 2. Open terminal and navigate to this folder
 3. run the query line by line below:
 ```bash
