@@ -21,7 +21,7 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
 1. Transform the paragraph to a list of words and ignore punctuations. For example, "I don't like dog." becomes ["I", "dont", "like", "dog"].
 2. Use difflib to get different words. For example, ["I", "dont", "like", "dog"] and ["I", "do", not", "like", "dog"] becomes [" I", "+ dont", "- do", "- not", " like", " dog"]. Sign "+" means the unique word at list1 and sign "-" means the unique word at list2.
 3. Score calculations: 
-3.1 If the word is identical (no sign before the word, ex. " I"), total_score and similarity_score both plus 1.
-3.2 Otherwise, concat the words with the same sign to compare similarity. For example, the comparison between ["+ dont", "- do", "- not"] is "dont" and "donot" and the score is 0.8. Total_score will plus the minimum number of concated words ("dont"=1) and similarity_score will plus the output of string similarty(0.8).
+  3.1 If the word is identical (no sign before the word, ex. " I"), total_score and similarity_score both plus 1.
+  3.2 Otherwise, concat the words with the same sign to compare similarity. For example, the comparison between ["+ dont", "- do", "- not"] is "dont" and "donot" and the score is 0.8. Total_score will plus the minimum number of concated words ("dont"=1) and similarity_score will plus the output of string similarty(0.8).
 4 After comparing all words in the list, the ratio = similarity_score/total_score
 
