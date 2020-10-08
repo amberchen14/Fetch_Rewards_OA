@@ -3,7 +3,7 @@ This project calculates the string similarity ratio between two paragraphs. The 
 
 ## Results Output
 Sample1 and Sample2 ![s1_vs_s2](/pic/s1_vs_s2.png)
-Sample2 and Sample3 ![s2_vs_s3](/pic/s1_vs_s2.png)
+Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
 ## Satisfied requirements
 1. At least the code can run.
 2. Use only standard library.
