@@ -23,5 +23,6 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
 3. Score calculations: 
   - If the word is identical (no sign before the word, ex. " I"), total_score and similarity_score both plus 1.
   - Otherwise, concat the words with the same sign to compare similarity. For example, the comparison between ["+ dont", "- do", "- not"] is "dont" and "donot" and the score is 0.8. Total_score will plus the minimum number of concated words ("dont"=1) and similarity_score will plus the output of string similarty(0.8).
-4. After comparing all words in the list, the ratio = similarity_score/total_score
+  - Concat the words until no sign the before words.  
+4. After comparing all words in the list, the ratio = similarity_score/total_score. For example, 0.95=similarity_score (3+0.8)/total_score(4).
 
