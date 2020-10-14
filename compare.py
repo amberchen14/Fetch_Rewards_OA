@@ -17,8 +17,8 @@ def calculate_score(result):
     """
     sample1=result['Sample1']
     sample2=result['Sample2']
-    string1, num1=paragraph_to_list(sample1)
-    string2, num2=paragraph_to_list(sample2)
+    string1=paragraph_to_list(sample1)
+    string2=paragraph_to_list(sample2)
     
     return round( strings_similarity(string1, string2), 2)
     #method_dict=strings_count_compare(string1, string2)/ max(len(string1), len(string2))
@@ -45,11 +45,9 @@ def paragraph_to_list(para):
         #    new_string+=" "
         elif para[pos]==" ":
             new_string+=para[pos]
-            nums+=1
         pos+=1
-    nums+=1
     out=new_string.split(" ")
-    return out, nums    
+    return out   
     #return [s_out, l_out]
 
 
