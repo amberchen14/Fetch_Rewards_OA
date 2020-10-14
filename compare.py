@@ -32,7 +32,6 @@ def paragraph_to_list(para):
     '''
     new_string=''
     pos = 0
-    nums=0
     while pos <len(para):
         if para[pos].isalpha():
             new_string+=para[pos].lower()
