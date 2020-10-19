@@ -61,12 +61,20 @@ def strings_similarity(text1, text2):
     Two scores will calculate: similairty_score and total_score (number of words)
     Since numbers of words are different between two texts, 
     this function concats the words if facing same sign.
-    For example, text1=["I", "do", "not", "like", "dog"], text2=["I", "don", "t", "like", "dog"]
-    result=["I", "+ do", "+not", "-don", "- t", "like", "dog"]
-    This function concats "+ do", "+not" => "do not"and "don", "t"=> "don t" to calculate score, 
-    The number of words here is min(len(['do', not]), len('dont')) = 1 , and total_score = 4 ("I"=1, "like"=1, "dog"=1) 
-    The similarity_score is 0.72 at "do not" and "don t", and the total score similarity is 3.72 ("I"=1, "like"=1, "dog"=1)
-    The ratio = 3.72/4=0.93
+    For example, text1=["I", "do", "not", "like", "dog"], text2=["I", "dont", "like", "dog"]
+    result=["I", "+ do", "+not", "-dont", "like", "dog"]
+    To calculate total_score:
+    - If no sign before the word: +1
+    - Two signs are between the words with space: + minimum words. For example, ["+ do", "+not", "-dont"] has two signs 
+    between "I" and "like". sign + has two words and sign - only has one word, then min(2, 1)=1
+    - Only one sign between the words with space: the number of the word with the sign. 
+    To calculate string_similarity:
+    - If no sign before the word: +1
+    - Two signs are between the words with space: concats the words with the same sign and call difflib's SequenceMatcher function.
+      For example, ["+ do", "+not", "-dont"] has two signs between "I" and "like". 
+      SequenceMatcher(lambda x: x == " ", "do not", "dont").ratio()=0.8
+    - If only one sign before the word: + 0
+    The output is 3.8/4= 0.95 when comparing these texts.
     '''
     d = Differ() 
     total_score, similarity = 0, 0
