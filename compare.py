@@ -64,7 +64,7 @@ def strings_similarity(text1, text2):
     Since numbers of words are different between two texts, 
     this function concats the words if facing same sign.
     For example, text1=["I", "do", "not", "like", "dog"], text2=["I", "dont", "like", "dog"]
-    result=["I", "+ do", "+not", "-dont", "like", "dog"]
+    result=[" I", "+ do", "+ not", "- dont", " like", " dog"]
     To calculate total_score:
     - If no sign before the word: +1
     - Two signs are between the words with space: + minimum words. For example, ["+ do", "+not", "-dont"] has two signs 
@@ -86,18 +86,18 @@ def strings_similarity(text1, text2):
     plus_num, minus_num = 0, 0
     for r in result:
         #print("r ", r[0])
-        if r[0]==" ":
+        if r[0]==" ": # No sign before the word. 
             similarity+=1
             total_score +=1
             if len(plus)==0 and len(minus)==0:
                 continue
-            else:
+            else:     
                 score=SequenceMatcher(lambda x: x == " ", plus, minus).ratio()
-                if plus_num>0 and minus_num>0:
-                    similarity+=score/min(plus_num, minus_num)
+                if plus_num>0 and minus_num>0: # '+' and '-' both show between the words with space. 
+                    similarity+=score
                     total_score+=min(plus_num, minus_num)
                 else:
-                    similarity+=score/max(plus_num, minus_num)
+                    similarity+=score
                     total_score+=max(plus_num, minus_num)
             plus, minus='', ''
             plus_num, minus_num = 0, 0
