@@ -28,7 +28,7 @@ def paragraph_to_list(para):
     '''
     1. Removes punctuations. For example, "don't" ==> "dont"
     2. Lower the capital.
-    3. Split the words with spacke.
+    3. Split the words with space.
     For example,
     (ex. "I don't like cake." ==> ["i", "dont", "like", "cake"] 
     '''
