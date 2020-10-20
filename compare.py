@@ -26,9 +26,11 @@ def calculate_score(result):
 
 def paragraph_to_list(para):
     '''
-    This function removes punctuations and split paragraph to list (ex. "I like cake." ==> ["I", "like", "cake"] 
-    Ignore all punctuations.
-    For example, "don't" ==> "dont"
+    1. Removes punctuations. For example, "don't" ==> "dont"
+    2. Lower the capital.
+    3. Split the words with spacke.
+    For example,
+    (ex. "I don't like cake." ==> ["i", "dont", "like", "cake"] 
     '''
     new_string=''
     pos = 0
