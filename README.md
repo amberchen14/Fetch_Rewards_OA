@@ -22,7 +22,7 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
   - Remove punctuations
   - Lower capital.
   - Split the words with space. 
-![example1](/pic/example1.png | width=100)
+![example1](/pic/example1.png)
 2. Find unique words between two lists. For example, the result shows that red words (+) are unique in list 1, and blue words (-) are unique in list 2. 
 ![example2](/pic/example2.png)
 3. Concat the unique words with same sign and calculate string similarity using SequenceMatcher in Difflib package.
