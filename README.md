@@ -35,12 +35,14 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
     1. Sum the signs until no sign before the word. 
     2. If only facing one sign: + number of sign
     3. Two signs (+ and -): + min(number of -, number of +)
+![example4](/pic/example4.png)    
 - string_similarity: 2 cases, with/out sign
   - No sign before the word: +1. (ex. "i", "like", "dog" = 3)
   - Sign before the word: 
     1. Concat the words with the same sign until no sign before the word.  
     2. If only facing one sign: + 0
     3. Two signs (+ and -): + SequenceMatcher(words with +, words with -).ratio()
+![example5](/pic/example5.png)    
 - Ratio= string_similarity/total_score. (ex. 3.8/4=0.95)
 
 ## Steps to launch the app
