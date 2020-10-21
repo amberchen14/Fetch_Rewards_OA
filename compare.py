@@ -84,24 +84,8 @@ def strings_similarity(text1, text2):
     result= list(d.compare(text1, text2))    
     plus, minus,= '', ''
     plus_num, minus_num = 0, 0
-    for r in result:
+    for pos, r in enumerate(result):
         #print("r ", r[0])
-        if r[0]==" ": # No sign before the word. 
-            similarity+=1
-            total_score +=1
-            if len(plus)==0 and len(minus)==0:
-                continue
-            else:     
-                score=SequenceMatcher(lambda x: x == " ", plus, minus).ratio()
-                if plus_num>0 and minus_num>0: # '+' and '-' both show between the words with space. 
-                    similarity+=score
-                    total_score+=min(plus_num, minus_num)
-                else:
-                    similarity+=score
-                    total_score+=max(plus_num, minus_num)
-            plus, minus='', ''
-            plus_num, minus_num = 0, 0
-            continue
         if r[0]=='+':
             if len(plus)!=0:
                 plus+=" "
@@ -112,6 +96,23 @@ def strings_similarity(text1, text2):
                 minus+=" "      
             minus+=r[2:]
             minus_num+=1 
+            
+        if r[0]==" " or pos ==len(result)-1: # No sign before the word. 
+            similarity+=1
+            total_score +=1
+            if len(plus)==0 and len(minus)==0:
+                continue
+            else:     
+                print(plus, minus)
+                score=SequenceMatcher(lambda  x: x == " ", plus, minus).ratio()
+                if plus_num>0 and minus_num>0: # '+' and '-' both show between the words with space. 
+                    similarity+=score
+                    total_score+=min(plus_num, minus_num)
+                else:
+                    similarity+=score
+                    total_score+=max(plus_num, minus_num)
+            plus, minus='', ''
+            plus_num, minus_num = 0, 0
     return similarity/total_score
 
 def strings_count_compare(string1, string2):
@@ -126,13 +127,13 @@ def strings_count_compare(string1, string2):
         if word in s2:
            out+=min(s1[word], s2[word])
     return out
-#sample1="The easiest way to earn points with Fetch Rewards is to just shop for the products you already love. If you have any participating brands on your receipt, you'll get points based on the cost of the products. You don't need to clip any coupons or scan individual barcodes. Just scan each grocery receipt after you shop and we'll find the savings for you."
-#sample2="The easiest way to earn points with Fetch Rewards is to just shop for the items you already buy. If you have any eligible brands on your receipt, you will get points based on the total cost of the products. You do not need to cut out any coupons or scan individual UPCs. Just scan your receipt after you check out and we will find the savings for you."
+sample1="The easiest way to earn points with Fetch Rewards is to just shop for the products you already love. If you have any participating brands on your receipt, you'll get points based on the cost of the products. You don't need to clip any coupons or scan individual barcodes. Just scan each grocery receipt after you shop and we'll find the savings for you."
+sample2="The easiest way to earn points with Fetch Rewards is to just shop for the items you already buy. If you have any eligible brands on your receipt, you will get points based on the total cost of the products. You do not need to cut out any coupons or scan individual UPCs. Just scan your receipt after you check out and we will find the savings for you."
 #sample2="We are always looking for opportunities for you to earn more points, which is why we also give you a selection of Special Offers. These Special Offers are opportunities to earn bonus points on top of the regular points you earn every time you purchase a participating brand. No need to pre-select these offers, we'll give you the points whether or not you knew about the offer. We just think it is easier that way."
-#result=dict()
-#result['Sample1']=sample1
-#result['Sample2']=sample2
-#calculate_score(result)
+result=dict()
+result['Sample1']=sample1
+result['Sample2']=sample2
+calculate_score(result)
 
 
 
