@@ -22,10 +22,13 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
   - Remove punctuations
   - Lower capital.
   - Split the words with space. 
+  
 ![example1](/pic/example1.png)
 2. Find unique words between two lists. For example, the result shows that red words (+) are unique in list 1, and blue words (-) are unique in list 2. 
+
 ![example2](/pic/example2.png)
 3. Concat the unique words with same sign and calculate string similarity using SequenceMatcher in Difflib package.
+
 ![example3](/pic/example3.png)
 
 ### Score calculation
@@ -35,6 +38,7 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
     1. Sum the signs until no sign before the word. 
     2. If only facing one sign: + number of sign
     3. Two signs (+ and -): + min(number of -, number of +)
+    
 ![example4](/pic/example4.png)    
 - string_similarity: 2 cases, with/out sign
   - No sign before the word: +1. (ex. "i", "like", "dog" = 3)
@@ -42,6 +46,7 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
     1. Concat the words with the same sign until no sign before the word.  
     2. If only facing one sign: + 0
     3. Two signs (+ and -): + SequenceMatcher(words with +, words with -).ratio()
+    
 ![example5](/pic/example5.png)    
 - Ratio= string_similarity/total_score. (ex. 3.8/4=0.95)
 
