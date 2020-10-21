@@ -24,7 +24,8 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
   - Split the words with space. 
 For example, "I don't like dog." ==> ["i", "dont", "like", "dog"].
 2. Find unique words between two lists. For example, the result shows that red words (+) are unique in list 1, and blue words (-) are unique in list 2. 
-3. Calcu
+3. Concat the unique words with same sign and calculate string similarity using SequenceMatcher in Difflib package.
+
 3. Sum total_score, 2 cases:
 - No sign before the word: +1. (ex. "i", "like", "dog" = 3)
 - Sign before the word: sum the signs until no sign before the word. Then, 
