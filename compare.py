@@ -26,6 +26,7 @@ def calculate_score(result):
 
 def paragraph_to_list(para):
     '''
+    First main step: Transfrom strings/paragraphs to a list of words.
     1. Removes punctuations. For example, "don't" ==> "dont"
     2. Lower the capital.
     3. Split the words with space.
@@ -78,10 +79,11 @@ def strings_similarity(text1, text2):
     - If only one sign before the word: + 0
     The output is 3.8/4= 0.95 when comparing these texts.
     '''
+    #Second main step: Find the unique words in two lists.
     d = Differ() 
+    result= list(d.compare(text1, text2))  
+    #Third main step: calculate the scores.
     total_score, similarity = 0, 0
-    #Calculate the difference between the two texts
-    result= list(d.compare(text1, text2))    
     plus, minus,= '', ''
     plus_num, minus_num = 0, 0
     for pos, r in enumerate(result):
