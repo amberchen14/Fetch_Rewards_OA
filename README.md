@@ -40,7 +40,7 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
     3. Two signs (+ and -): + min(number of -, number of +)
     
 ![example4](/pic/example4.png)    
-- string_similarity: 2 cases, with/out sign
+- similarity_score: 2 cases, with/out sign
   - No sign before the word: +1. (ex. "i", "like", "dog" = 3)
   - Sign before the word: 
     1. Concat the words with the same sign until no sign before the word.  
@@ -48,7 +48,7 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
     3. Two signs (+ and -): + SequenceMatcher(words with +, words with -).ratio()
     
 ![example5](/pic/example5.png)    
-- Ratio= string_similarity/total_score. (ex. 3.8/4=0.95)
+- Ratio= similarity_score/total_score. (ex. 3.8/4=0.95)
 
 ## Steps to launch the app
 1. Git clone this repository. (git clone https://github.com/amberchen14/Fetch_Rewards_OA.git) 
