@@ -53,7 +53,7 @@ Sample2 and Sample3 ![s2_vs_s3](/pic/s2_vs_s3.png)
 ## Steps to launch the app
 1. Git clone this repository. (git clone https://github.com/amberchen14/Fetch_Rewards_OA.git) 
 2. Open terminal and navigate to this folder
-3. Run the query line by line below:
+3. Turn on the docker and run the query line by line below:
 ```bash
 docker image build -t test .  
 docker run -p 5000:5000 -d test      
